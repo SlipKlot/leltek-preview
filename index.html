@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#111716" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Беспроводные УЗ-системы LeSONO от LELTEK. Оборудование под ваши задачи и задачи вашей команды." />
+    <title>LeSONO — ультразвук рядом с врачом</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" type="module"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">К содержимому</a>
+    <header class="header">
+      <a class="brand" href="./" aria-label="LeSONO by LELTEK">
+        <span class="brand-name">Le<span>SONO</span><i aria-hidden="true"></i></span>
+        <span class="brand-by">BY LELTEK</span>
+      </a>
+      <nav class="navigation" aria-label="Основная навигация" data-i18n-aria="navigation">
+        <a class="nav-link" href="#practice" data-i18n="navPractice">Практика</a>
+        <a class="nav-link" href="#library" data-i18n="navLibrary">Библиотека</a>
+        <a class="nav-link" href="#catalog" data-i18n="navProbes">Датчики</a>
+        <button class="nav-link" data-open="system" data-i18n="navSystem">О системе</button>
+      </nav>
+      <div class="header-actions">
+        <div class="language-switch" role="group" aria-label="Язык сайта" data-i18n-aria="language">
+          <button class="language-button is-active" type="button" data-language="ru" aria-pressed="true" aria-label="Русский">RU</button>
+          <span aria-hidden="true">/</span>
+          <button class="language-button" type="button" data-language="en" aria-pressed="false" aria-label="English">EN</button>
+        </div>
+        <button class="header-contact" data-open="contact"><span data-i18n="headerContact">Связаться</span><span aria-hidden="true">↗</span></button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-art">
+          <picture>
+            <source media="(max-width: 767px)" srcset="./assets/hero-mobile.webp" width="900" height="1125" />
+            <img class="hero-image" src="./assets/hero-desktop.webp" width="1448" height="1086" fetchpriority="high" alt="Врач с беспроводным датчиком LeSONO, планшетом и дополнительными датчиками" data-i18n-alt="heroAlt" />
+          </picture>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="eyebrow">БЕСПРОВОДНЫЕ УЗ-СИСТЕМЫ</span></p>
+          <h1 id="hero-title"><span data-i18n="titleFirst">Ультразвук</span><span class="title-accent" data-i18n="titleSecond">рядом с врачом</span></h1>
+          <p class="hero-description" data-i18n="description">Беспроводные УЗ-системы LeSONO от LELTEK для клинической практики. Выбирайте оборудование под ваши задачи и задачи вашей команды.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" data-open="probes"><span data-i18n="explore">Выбрать датчик</span><span aria-hidden="true">↗</span></button>
+            <button class="button button-secondary" data-open="contact"><span data-i18n="contact">Связаться с нами</span><span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="hero-signature"><span class="signature-line" aria-hidden="true"></span><span data-i18n="signature">Ваши задачи. Ваша команда. LeSONO.</span></div>
+        </div>
+        <div class="image-caption" aria-hidden="true"><span class="caption-index">01 /</span> LeSONO <span class="caption-separator">—</span> <span data-i18n="caption">в вашей практике</span></div>
+      </section>
+
+      <section class="principles" aria-label="Система LeSONO" data-i18n-aria="principlesLabel">
+        <div class="principle"><span class="principle-index">01</span><div><h2 data-i18n="principleOne">Без проводов</h2><p data-i18n="principleOneText">Датчик и совместимое устройство</p></div><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 12a18 18 0 0 1 24 0M8 17a12 12 0 0 1 16 0M12 22a6 6 0 0 1 8 0"/><circle cx="16" cy="27" r="1"/></svg></div>
+        <div class="principle"><span class="principle-index">02</span><div><h2 data-i18n="principleTwo">Рядом с пациентом</h2><p data-i18n="principleTwoText">Визуализация в месте оказания помощи</p></div><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 4v24M4 16h24"/><circle cx="16" cy="16" r="12"/></svg></div>
+        <div class="principle"><span class="principle-index">03</span><div><h2 data-i18n="principleThree">Для вашей команды</h2><p data-i18n="principleThreeText">Выбор под клинические задачи</p></div><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="12" cy="10" r="4"/><path d="M4 27v-3a8 8 0 0 1 16 0v3M22 6a4 4 0 0 1 0 8M25 18a8 8 0 0 1 4 7v2"/></svg></div>
+      </section>
+    </main>
+
+    <dialog id="probes-dialog" class="dialog probes-dialog" aria-labelledby="probes-title">
+      <div class="dialog-inner">
+        <button class="close-button" data-close aria-label="Закрыть" data-i18n-aria="close">×</button>
+        <p class="eyebrow" data-i18n="range">ЛИНЕЙКА LESONO</p>
+        <h2 id="probes-title" data-i18n="probesTitle">Выберите свой датчик</h2>
+        <p class="dialog-intro" data-i18n="probesIntro">Начните с типа датчика. Для уточнения комплектации свяжитесь с нами.</p>
+        <div class="filter-list" role="group" aria-label="Тип датчика" data-i18n-aria="probeType">
+          <button class="filter is-active" data-filter="all" aria-pressed="true" data-i18n="all">Все</button>
+          <button class="filter" data-filter="linear" aria-pressed="false" data-i18n="linear">Линейные</button>
+          <button class="filter" data-filter="convex" aria-pressed="false" data-i18n="convex">Конвексные</button>
+          <button class="filter" data-filter="phased" aria-pressed="false" data-i18n="phased">Секторные</button>
+        </div>
+        <div class="probe-grid" id="probe-grid" aria-live="polite"></div>
+        <a id="quick-catalog" class="quick-catalog" href="#catalog">Открыть полный каталог ↓</a>
+        <div class="dialog-footer"><span data-i18n="selectionHint">Обсудите задачи вашей команды</span><button class="button button-primary" data-open="contact"><span data-i18n="contact">Связаться с нами</span><span aria-hidden="true">↗</span></button></div>
+      </div>
+    </dialog>
+
+    <dialog id="system-dialog" class="dialog small-dialog" aria-labelledby="system-title">
+      <div class="dialog-inner">
+        <button class="close-button" data-close aria-label="Закрыть" data-i18n-aria="close">×</button>
+        <p class="eyebrow">LESONO BY LELTEK</p>
+        <h2 id="system-title" data-i18n="systemTitle">От датчика к изображению</h2>
+        <p class="dialog-intro" data-i18n="systemIntro">Беспроводной датчик работает вместе с приложением на совместимом устройстве. Состав системы подбирается под задачи вашей практики.</p>
+        <ol class="system-steps"><li><span data-i18n="stepOne">Выберите датчик</span></li><li><span data-i18n="stepTwo">Уточните совместимость устройства</span></li><li><span data-i18n="stepThree">Подберите комплектацию</span></li></ol>
+        <button class="button button-primary" data-open="probes"><span data-i18n="explore">Выбрать датчик</span><span aria-hidden="true">↗</span></button>
+      </div>
+    </dialog>
+
+    <dialog id="contact-dialog" class="dialog small-dialog" aria-labelledby="contact-title">
+      <div class="dialog-inner">
+        <button class="close-button" data-close aria-label="Закрыть" data-i18n-aria="close">×</button>
+        <p class="eyebrow" data-i18n="contactEyebrow">ПРЯМОЙ КОНТАКТ</p>
+        <h2 id="contact-title" data-i18n="contactTitle">Обсудим ваши задачи</h2>
+        <div id="contact-details"></div>
+      </div>
+    </dialog>
+    <noscript><p class="noscript-note">Для переключения языка и просмотра моделей включите JavaScript. / Enable JavaScript to switch languages and browse probes.</p></noscript>
+  </body>
+</html>
