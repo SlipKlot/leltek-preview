@@ -1,4 +1,5 @@
 import { clinicalMarkup, refreshLibrary, restoreLibraryRoute } from './clinical.js';
+import { educationMarkup, updateSectionNavigation } from './education.js';
 const content = {
   ru: {
     catalogLabel: '03 / ЛИНЕЙКА LESONO', catalogTitle: 'Ваш датчик.\nВаш рабочий инструмент.', catalogIntro: 'Сравните типы датчиков и соберите набор под свою практику. Начните с формы рабочей поверхности и области исследования.',
@@ -52,9 +53,11 @@ export function renderSections(language, probes) {
       <div class="section-heading"><div><p class="section-label">${t.systemLabel}</p><h2 id="workflow-title">${t.systemTitle}</h2></div><p class="section-intro">${t.systemIntro}</p></div>
       <div class="system-layout"><figure class="kit-figure"><img src="./assets/kit.webp" width="900" height="1200" loading="lazy" alt="${t.caseAlt}"><figcaption>${t.caseCaption}</figcaption></figure><div class="workflow"><ol>${t.steps.map((step, i) => `<li><span class="step-number">0${i + 1}</span><div><h3>${step[0]}</h3><p>${step[1]}</p></div></li>`).join('')}</ol><button class="button button-primary" data-open="contact">${t.systemButton} <span aria-hidden="true">↗</span></button></div></div>
     </section>
+    ${educationMarkup(language)}
     <footer class="site-footer"><span>LeSONO <span class="footer-by">by LELTEK</span></span><p>${t.footer}</p><a href="#main">${t.top}</a></footer>`;
   renderCatalog();
   refreshLibrary();
+  updateSectionNavigation(language);
   if (!document.documentElement.dataset.libraryInitialized) {
     document.documentElement.dataset.libraryInitialized = 'true';
     requestAnimationFrame(restoreLibraryRoute);
