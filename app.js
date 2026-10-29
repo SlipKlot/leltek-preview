@@ -16,7 +16,7 @@ const copy = {
     principleThree: 'Для вашей команды', principleThreeText: 'Выбор под клинические задачи',
     close: 'Закрыть', range: 'ЛИНЕЙКА LESONO', probesTitle: 'Выберите свой датчик',
     probesIntro: 'Начните с типа датчика. Для уточнения комплектации свяжитесь с нами.',
-    probeType: 'Тип датчика', all: 'Все', linear: 'Линейные', convex: 'Конвексные', phased: 'Секторные',
+    probeType: 'Тип датчика', all: 'Все', linear: 'Линейные', convex: 'Конвексные', phased: 'Секторные', microconvex: 'Микроконвексные', endocavity: 'Внутриполостные', microconvexSingle: 'Микроконвексный датчик', endocavitySingle: 'Внутриполостной датчик',
     linearSingle: 'Линейный датчик', convexSingle: 'Конвексный датчик', phasedSingle: 'Секторный датчик',
     selectionHint: 'Обсудите задачи вашей команды', systemTitle: 'От датчика к изображению',
     systemIntro: 'Беспроводной датчик работает вместе с приложением на совместимом устройстве. Состав системы подбирается под задачи вашей практики.',
@@ -38,7 +38,7 @@ const copy = {
     principleThree: 'For your team', principleThreeText: 'A choice guided by clinical needs',
     close: 'Close', range: 'THE LESONO RANGE', probesTitle: 'Find your probe',
     probesIntro: 'Start with a probe type. Get in touch to discuss configuration options.',
-    probeType: 'Probe type', all: 'All', linear: 'Linear', convex: 'Convex', phased: 'Phased array',
+    probeType: 'Probe type', all: 'All', linear: 'Linear', convex: 'Convex', phased: 'Phased array', microconvex: 'Microconvex', endocavity: 'Endocavity', microconvexSingle: 'Microconvex probe', endocavitySingle: 'Endocavity probe',
     linearSingle: 'Linear probe', convexSingle: 'Convex probe', phasedSingle: 'Phased-array probe',
     selectionHint: 'Let’s discuss your team’s requirements', systemTitle: 'From probe to image',
     systemIntro: 'The wireless probe works with an app on a compatible device. The system is configured around the needs of your practice.',
@@ -54,6 +54,8 @@ const probes = [
   { model: 'LU710LH', type: 'linear', image: 'lu710lh.webp' },
   { model: 'LU710C', type: 'convex', image: 'lu710c.webp' },
   { model: 'LU710PA', type: 'phased', image: 'lu710pa.webp' },
+  { model: 'LU710M', type: 'microconvex', image: 'lu710m.webp', side: 'lu710m-side.webp' },
+  { model: 'LU710E', type: 'endocavity', image: 'lu710e.webp', side: 'lu710e-side.webp' },
 ];
 let language = new URL(location.href).searchParams.get('lang') === 'en' ? 'en' : 'ru';
 let filter = 'all';
