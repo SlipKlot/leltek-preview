@@ -1,7 +1,8 @@
+import { hemodynamics } from './hemodynamics.js';
 // Educational areas are independent of model-specific indications.
 export const specialties = [
-  { id: 'anaesthesia', ru: ['Анестезиология-реаниматология', 'УЗИ-навигация сосудистого доступа. Экстренные ультразвуковые протоколы eFAST, BLUE, RUSH и фокусная эхокардиография.'], en: ['Anaesthesiology & intensive care', 'Ultrasound-guided vascular access. Emergency ultrasound protocols: eFAST, BLUE, RUSH and focused echocardiography.'], topics: ['vascular', 'efast', 'blue', 'rush', 'echo'] },
-  { id: 'emergency', ru: ['Скорая медицинская помощь', 'Ультразвук в выездной практике и оказании экстренной помощи.'], en: ['Emergency medical services', 'Ultrasound in prehospital practice and emergency care.'], topics: [] },
+  { id: 'anaesthesia', ru: ['Анестезиология-реаниматология', 'УЗИ-навигация сосудистого доступа. Экстренные ультразвуковые протоколы eFAST, BLUE, RUSH и фокусная эхокардиография.'], en: ['Anaesthesiology & intensive care', 'Ultrasound-guided vascular access. Emergency ultrasound protocols: eFAST, BLUE, RUSH and focused echocardiography.'], topics: ['vascular', 'efast', 'blue', 'rush', 'echo', 'hemodynamics'] },
+  { id: 'emergency', ru: ['Скорая медицинская помощь', 'Ультразвук в выездной практике и оказании экстренной помощи.'], en: ['Emergency medical services', 'Ultrasound in prehospital practice and emergency care.'], topics: ['hemodynamics'] },
   { id: 'pain', ru: ['УЗИ в лечении хронической боли', 'Ультразвуковая навигация интервенций и скелетно-мышечная диагностика в практике лечения хронической боли.'], en: ['Ultrasound in chronic pain management', 'Ultrasound guidance for interventions and musculoskeletal assessment in chronic pain management.'], topics: [] },
   { id: 'neonatal', ru: ['УЗИ в неонатологии', 'Ультразвук в практике специалистов, работающих с новорождёнными.'], en: ['Neonatal ultrasound', 'Ultrasound in the practice of clinicians caring for newborns.'], topics: [] },
   { id: 'diagnostics', ru: ['Ультразвуковая диагностика', 'Материалы для специалистов ультразвуковой диагностики и их команд.'], en: ['Diagnostic ultrasound', 'Resources for ultrasound practitioners and their teams.'], topics: [] },
@@ -13,6 +14,7 @@ export const specialties = [
 ];
 
 export const topics = {
+  hemodynamics: {ru: 'Гемодинамика', en: 'Haemodynamics'},
   vetdiagnostics: { ru: 'Диагностика', en: 'Diagnostic ultrasound' },
   puncture: { ru: 'Пункции под УЗИ', en: 'Ultrasound-guided puncture procedures' },
   drainage: { ru: 'Дренирование под УЗИ', en: 'Ultrasound-guided drainage' },
@@ -24,4 +26,4 @@ export const topics = {
 };
 
 // Add only approved resources. See CONTENT.md for schema and publication steps.
-export const materials = [];
+export const materials = [hemodynamics];

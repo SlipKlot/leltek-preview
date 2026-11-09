@@ -1,3 +1,4 @@
+import { featuredInfographic } from './hemodynamics.js';
 import { specialties, topics, materials } from './clinical-content.js';
 
 const copy = {
@@ -54,6 +55,7 @@ export function clinicalMarkup(lang) {
   </section>
   <section class="library-section section-pad" id="library" aria-labelledby="library-title">
     <div class="section-heading"><div><p class="section-label">${t.libraryLabel}</p><h2 id="library-title">${t.libraryTitle}</h2></div><p class="section-intro">${t.libraryIntro}</p></div>
+    ${featuredInfographic(language)}
     <div class="library-shell"><div class="library-select"><label for="library-specialty">${t.specialty}</label><select id="library-specialty">${specialties.map(item => `<option value="${item.id}" ${item.id === selected ? 'selected' : ''}>${item[language][0]}</option>`).join('')}</select></div><div id="library-content"></div></div>
   </section>`;
 }
@@ -63,13 +65,13 @@ export function refreshLibrary() {
   if (!target) return;
   const t = copy[language];
   const area = specialties.find(item => item.id === selected);
-  const collection = materials.filter(item => item.specialty === selected && item.title?.[language] && (topic === 'all' || item.topics?.includes(topic)));
+  const collection = materials.filter(item => (item.specialty === selected || item.specialties?.includes(selected)) && item.title?.[language] && (topic === 'all' || item.topics?.includes(topic)));
   const visible = collection.filter(item => format === 'all' || item.format === format);
   document.querySelector('#library-specialty').value = selected;
   target.innerHTML = `<h3 class="library-area-title" tabindex="-1">${area[language][0]}</h3><p class="library-area-intro">${area[language][1]}</p>
     ${area.topics.length ? `<div class="library-topics" role="group" aria-label="${t.theme}"><a href="#library-${selected}" ${topic === 'all' ? 'aria-current="true"' : ''}>${t.allTopics}</a>${area.topics.map(id => `<a href="#library-${selected}-${id}" ${topic === id ? 'aria-current="true"' : ''}>${topics[id][language]}</a>`).join('')}</div>` : ''}
     <div class="library-formats" role="group" aria-label="${t.format}">${formats.map(id => `<button data-library-format="${id}" aria-pressed="${format === id}">${t[id]} <span>${collection.filter(item => id === 'all' || item.format === id).length}</span></button>`).join('')}</div>
-    <div class="library-results" role="status">${visible.length ? `<div class="resource-grid">${visible.map(item => `<a class="resource-card" href="${escape(item.href)}"><span>${t[item.format]}</span><h4>${escape(item.title[language])}</h4><p>${t.resource} ↗</p></a>`).join('')}</div>` : `<div class="library-empty"><span class="library-empty-symbol" aria-hidden="true">＋</span><div><h4>${t.emptyTitle}</h4><p>${topic === 'all' ? t.emptyText : t.topicEmpty}</p></div><span class="published-count">${t.total}: 0</span></div>`}</div>${selected === 'veterinary' && (topic === 'all' || topic === 'regional') && (format === 'all' || format === 'videos') ? `<article class="video-planned" id="subscalenic-block"><div class="video-placeholder"><span>${language === 'ru' ? 'Видео готовится к публикации' : 'Video in preparation'}</span></div><div><p class="section-label">${language === 'ru' ? 'ВЕТЕРИНАРИЯ / РЕГИОНАРНАЯ АНЕСТЕЗИЯ / ВИДЕО' : 'VETERINARY / REGIONAL ANAESTHESIA / VIDEO'}</p><h4>${language === 'ru' ? 'Блокада грудной конечности: Subscalenic block' : 'Thoracic limb block: Subscalenic block'}</h4><p>${language === 'ru' ? 'Материал для раздела регионарной анестезии под УЗИ мелких домашних животных. Видео, сведения об авторе и используемом оборудовании будут добавлены после подготовки материала.' : 'A resource for ultrasound-guided regional anaesthesia in small animals. The video, author information and equipment details will be added when the resource is ready.'}</p></div></article>` : ''}`;
+    <div class="library-results" role="status">${visible.length ? `<div class="resource-grid">${visible.map(item => `<a class="resource-card" href="${escape(item.href)}?lang=${language}">${item.preview?.[language] ? `<img src="${escape(item.preview[language])}" alt="${escape(item.title[language])}" width="320" height="480" loading="lazy">` : ''}<span>${t[item.format]}</span><h4>${escape(item.title[language])}</h4><p>${t.resource} ↗</p></a>`).join('')}</div>` : `<div class="library-empty"><span class="library-empty-symbol" aria-hidden="true">＋</span><div><h4>${t.emptyTitle}</h4><p>${topic === 'all' ? t.emptyText : t.topicEmpty}</p></div><span class="published-count">${t.total}: 0</span></div>`}</div>${selected === 'veterinary' && (topic === 'all' || topic === 'regional') && (format === 'all' || format === 'videos') ? `<article class="video-planned" id="subscalenic-block"><div class="video-placeholder"><span>${language === 'ru' ? 'Видео готовится к публикации' : 'Video in preparation'}</span></div><div><p class="section-label">${language === 'ru' ? 'ВЕТЕРИНАРИЯ / РЕГИОНАРНАЯ АНЕСТЕЗИЯ / ВИДЕО' : 'VETERINARY / REGIONAL ANAESTHESIA / VIDEO'}</p><h4>${language === 'ru' ? 'Блокада грудной конечности: Subscalenic block' : 'Thoracic limb block: Subscalenic block'}</h4><p>${language === 'ru' ? 'Материал для раздела регионарной анестезии под УЗИ мелких домашних животных. Видео, сведения об авторе и используемом оборудовании будут добавлены после подготовки материала.' : 'A resource for ultrasound-guided regional anaesthesia in small animals. The video, author information and equipment details will be added when the resource is ready.'}</p></div></article>` : ''}`;
 }
 
 function navigateLibrary(focus = true) {
