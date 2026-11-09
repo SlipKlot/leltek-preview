@@ -16,8 +16,8 @@ const content = {
   en: {
     catalogLabel: '03 / THE LESONO RANGE', catalogTitle: 'Your probe.\nYour everyday instrument.', catalogIntro: 'Compare probe types and put together a set for your practice. Start with the footprint and examination area.',
     filters: ['All probes', 'Linear', 'Convex', 'Phased array', 'Microconvex', 'Endocavity'], details: 'View details', discuss: 'Discuss this model',
-    types: {linear: 'Linear probe', convex: 'Convex probe', phased: 'Phased-array probe'},
-    descriptions: {linear: 'A straight footprint. Three models to compare and choose from.', convex: 'A curved footprint. A distinct probe type for your equipment set.', phased: 'A compact footprint with a phased array.'},
+    types: {linear: 'Linear probe', convex: 'Convex probe', phased: 'Phased-array probe', microconvex: 'Microconvex probe', endocavity: 'Endocavity probe'},
+    descriptions: {microconvex: 'A compact curved footprint.', endocavity: 'An elongated design for endocavity examinations.', linear: 'A straight footprint. Three models to compare and choose from.', convex: 'A curved footprint. A distinct probe type for your equipment set.', phased: 'A compact footprint with a phased array.'},
     detailText: 'We will clarify the frequency range, available modes, device compatibility and supplied accessories for this model.',
     compare: 'Need a starting point?', compareText: 'Tell us about your examinations and where the system will be used.', contact: 'Discuss your options',
     systemLabel: '04 / ONE SYSTEM', systemTitle: 'Probe in hand.\nImage in view.', systemIntro: 'The probe, a compatible tablet and the LeSONO app work together. Choose a configuration that fits your workspace.',
@@ -70,10 +70,10 @@ export function renderSections(language, probes) {
 function renderCatalog() {
   const t = content[currentLanguage];
   const selected = models.filter(probe => activeFilter === 'all' || probe.type === activeFilter);
-  document.querySelector('#catalog-grid').innerHTML = selected.map(probe => `<article class="catalog-card">
+  document.querySelector('#catalog-grid').innerHTML = selected.map(probe => `<article class="catalog-card" id="probe-${probe.model}" tabindex="-1">
     <div class="catalog-photo"><span class="model-label">LeSONO</span><img src="./assets/${probe.image}" alt="LeSONO ${probe.model}" width="420" height="560" loading="lazy"></div>
     <div class="catalog-copy"><p class="catalog-type">${t.types[probe.type]}</p><h3>${probe.model}</h3><p>${t.descriptions[probe.type]}</p>
-    <details><summary>${t.details}<span aria-hidden="true">+</span></summary><p>${t.detailText}</p>${probe.side ? `<div class="probe-gallery"><a href="./assets/${probe.image}" target="_blank" rel="noopener"><img src="./assets/${probe.image}" alt="${probe.model} — ${currentLanguage === 'ru' ? 'вид спереди' : 'front view'}" loading="lazy"><span>${currentLanguage === 'ru' ? 'Спереди · увеличить ↗' : 'Front · enlarge ↗'}</span></a><a href="./assets/${probe.side}" target="_blank" rel="noopener"><img src="./assets/${probe.side}" alt="${probe.model} — ${currentLanguage === 'ru' ? 'вид сбоку' : 'side view'}" loading="lazy"><span>${currentLanguage === 'ru' ? 'Сбоку · увеличить ↗' : 'Side · enlarge ↗'}</span></a></div>` : ''}<button data-open="contact">${t.discuss} ↗</button></details></div></article>`).join('');
+    ${['convex','microconvex','phased'].includes(probe.type)?`<a class="vexus-catalog-link" href="#library-anaesthesia-vexus">${currentLanguage==='ru'?'VExUS: протокол и тренажёр →':'VExUS: protocol and trainer →'}</a>`:''}<details><summary>${t.details}<span aria-hidden="true">+</span></summary><p>${t.detailText}</p>${probe.side ? `<div class="probe-gallery"><a href="./assets/${probe.image}" target="_blank" rel="noopener"><img src="./assets/${probe.image}" alt="${probe.model} — ${currentLanguage === 'ru' ? 'вид спереди' : 'front view'}" loading="lazy"><span>${currentLanguage === 'ru' ? 'Спереди · увеличить ↗' : 'Front · enlarge ↗'}</span></a><a href="./assets/${probe.side}" target="_blank" rel="noopener"><img src="./assets/${probe.side}" alt="${probe.model} — ${currentLanguage === 'ru' ? 'вид сбоку' : 'side view'}" loading="lazy"><span>${currentLanguage === 'ru' ? 'Сбоку · увеличить ↗' : 'Side · enlarge ↗'}</span></a></div>` : ''}<button data-open="contact">${t.discuss} ↗</button></details></div></article>`).join('');
   document.querySelector('#catalog-count').textContent = `${t.count}: ${selected.length}`;
   document.querySelectorAll('[data-catalog-filter]').forEach(button => {
     const active = button.dataset.catalogFilter === activeFilter;
@@ -87,6 +87,8 @@ document.addEventListener('click', event => {
   if (filter) {
     activeFilter = filter.dataset.catalogFilter || filter.dataset.selectType;
     renderCatalog();
+    const model=filter.dataset.vexusModel;
+    if(model)requestAnimationFrame(()=>{const card=document.getElementById(`probe-${model}`);card?.scrollIntoView({block:"center"});card?.focus({preventScroll:true});});
   }
   if (event.target.closest('#quick-catalog')) {
     document.querySelector('#probes-dialog').close();
@@ -94,3 +96,4 @@ document.addEventListener('click', event => {
     setTimeout(() => document.querySelector('#catalog-title').focus({preventScroll: true}), 0);
   }
 });
+
