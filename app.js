@@ -3,18 +3,18 @@ import { renderSections } from './sections.js';
 
 const copy = {
   ru: {
-    documentTitle: 'LeSONO — ультразвук рядом с врачом',
-    metaDescription: 'Беспроводные УЗ-системы LeSONO от LELTEK. Оборудование под ваши задачи и задачи вашей команды.',
+    documentTitle: 'LELTEK — ультразвук рядом с врачом',
+    metaDescription: 'Беспроводные УЗ-системы LELTEK. Оборудование под ваши задачи и задачи вашей команды.',
     skip: 'К содержимому', navigation: 'Основная навигация', language: 'Язык сайта',
     navProbes: 'Датчики', navSystem: 'О системе', headerContact: 'Связаться', navPractice: 'Практика', navLibrary: 'Библиотека',
     eyebrow: 'БЕСПРОВОДНЫЕ УЗ-СИСТЕМЫ', titleFirst: 'Ультразвук', titleSecond: 'рядом с врачом',
-    description: 'Беспроводные УЗ-системы LeSONO от LELTEK для клинической практики. Выбирайте оборудование под ваши задачи и задачи вашей команды.',
-    explore: 'Выбрать датчик', contact: 'Связаться с нами', signature: 'Ваши задачи. Ваша команда. LeSONO.',
-    caption: 'в вашей практике', heroAlt: 'Врач с беспроводным датчиком LeSONO, планшетом и дополнительными датчиками',
-    principlesLabel: 'Система LeSONO', principleOne: 'Без проводов', principleOneText: 'Датчик и совместимое устройство',
+    description: 'Беспроводные УЗ-системы LELTEK для клинической практики. Выбирайте оборудование под ваши задачи и задачи вашей команды.',
+    explore: 'Выбрать датчик', contact: 'Связаться с нами', signature: 'Ваши задачи. Ваша команда. LELTEK.',
+    caption: 'в вашей практике', heroAlt: 'Врач с беспроводным датчиком LELTEK, планшетом и дополнительными датчиками',
+    principlesLabel: 'Система LELTEK', principleOne: 'Без проводов', principleOneText: 'Датчик и совместимое устройство',
     principleTwo: 'Рядом с пациентом', principleTwoText: 'Визуализация в месте оказания помощи',
     principleThree: 'Для вашей команды', principleThreeText: 'Выбор под клинические задачи',
-    close: 'Закрыть', range: 'ЛИНЕЙКА LESONO', probesTitle: 'Выберите свой датчик',
+    close: 'Закрыть', range: 'ЛИНЕЙКА LELTEK', probesTitle: 'Выберите свой датчик',
     probesIntro: 'Начните с типа датчика. Для уточнения комплектации свяжитесь с нами.',
     probeType: 'Тип датчика', all: 'Все', linear: 'Линейные', convex: 'Конвексные', phased: 'Секторные', microconvex: 'Микроконвексные', endocavity: 'Внутриполостные', microconvexSingle: 'Микроконвексный датчик', endocavitySingle: 'Внутриполостной датчик',
     linearSingle: 'Линейный датчик', convexSingle: 'Конвексный датчик', phasedSingle: 'Секторный датчик',
@@ -25,18 +25,18 @@ const copy = {
     unavailable: 'Контактная информация пока недоступна.',
   },
   en: {
-    documentTitle: 'LeSONO — ultrasound at the point of care',
-    metaDescription: 'LeSONO wireless ultrasound systems by LELTEK. Equipment for your needs and those of your team.',
+    documentTitle: 'LELTEK — ultrasound at the point of care',
+    metaDescription: 'LELTEK wireless ultrasound systems. Equipment for your needs and those of your team.',
     skip: 'Skip to content', navigation: 'Main navigation', language: 'Website language',
     navProbes: 'Probes', navSystem: 'The system', headerContact: 'Get in touch', navPractice: 'Practice', navLibrary: 'Library',
     eyebrow: 'WIRELESS ULTRASOUND SYSTEMS', titleFirst: 'Ultrasound', titleSecond: 'at the point of care',
-    description: 'LeSONO wireless ultrasound systems by LELTEK for clinical practice. Choose equipment for your needs and those of your team.',
-    explore: 'Explore probes', contact: 'Get in touch', signature: 'Your needs. Your team. LeSONO.',
-    caption: 'in your practice', heroAlt: 'A clinician holding a LeSONO wireless probe, with a tablet and additional probes',
-    principlesLabel: 'The LeSONO system', principleOne: 'Wireless by design', principleOneText: 'A probe and a compatible device',
+    description: 'LELTEK wireless ultrasound systems for clinical practice. Choose equipment for your needs and those of your team.',
+    explore: 'Explore probes', contact: 'Get in touch', signature: 'Your needs. Your team. LELTEK.',
+    caption: 'in your practice', heroAlt: 'A clinician holding a LELTEK wireless probe, with a tablet and additional probes',
+    principlesLabel: 'The LELTEK system', principleOne: 'Wireless by design', principleOneText: 'A probe and a compatible device',
     principleTwo: 'At the point of care', principleTwoText: 'Imaging where care is delivered',
     principleThree: 'For your team', principleThreeText: 'A choice guided by clinical needs',
-    close: 'Close', range: 'THE LESONO RANGE', probesTitle: 'Find your probe',
+    close: 'Close', range: 'THE LELTEK RANGE', probesTitle: 'Find your probe',
     probesIntro: 'Start with a probe type. Get in touch to discuss configuration options.',
     probeType: 'Probe type', all: 'All', linear: 'Linear', convex: 'Convex', phased: 'Phased array', microconvex: 'Microconvex', endocavity: 'Endocavity', microconvexSingle: 'Microconvex probe', endocavitySingle: 'Endocavity probe',
     linearSingle: 'Linear probe', convexSingle: 'Convex probe', phasedSingle: 'Phased-array probe',
@@ -68,7 +68,7 @@ function renderProbes() {
     card.className = 'probe-card';
     const img = document.createElement('img');
     img.src = `./assets/${probe.image}`;
-    img.alt = `LeSONO ${probe.model}`;
+    img.alt = `LELTEK ${probe.model}`;
     img.width = 420;
     img.height = 560;
     img.loading = 'lazy';
